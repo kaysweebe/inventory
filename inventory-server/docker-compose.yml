@@ -1,0 +1,12 @@
+version: '3'
+services:
+  redis-server:
+    container_name: 'redis-server'
+    image: 'redis'
+    command: ["redis-server", "--bind", "redis", "--port", "6379"]
+  node-app:
+    container_name: 'node-app'
+    build:
+      context: .
+    ports:
+      - "8080:8080"
